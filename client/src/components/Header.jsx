@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SummaryApi } from '../common';
 import { toast } from 'react-toastify'
 import { setUserDetails } from '../store/userSlice';
-import ROLE from '../common/role';
+import {ROLE} from '../common/role';
 import Context from '../context';
 
 const Header = () => {

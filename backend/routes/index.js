@@ -19,11 +19,12 @@ import {updateAddToCartProduct} from '../controller/user/updateAddToCartProduct.
 import {deleteAddToCartProduct} from '../controller/user/deleteAddToCartProduct.js';
 import {searchProduct} from '../controller/product/searchProduct.js';
 import {filterProductController} from '../controller/product/filterProduct.js';
-
-
+import { AdminSignUpController } from '../controller/user/userSignUpAdmin.js';
+import multer from 'multer';
 const router = express.Router()
-
-router.post("/signup",userSignUpController)
+import { upload } from '../middleware/multer.middleware.js';
+router.post("/signup",  upload.single('profilePic'),userSignUpController)
+router.post("/admin/signup",AdminSignUpController)
 router.post("/signin",userSignInController)
 router.get("/user-details",authToken,userDetailsController)
 router.get("/userLogout",userLogout)
